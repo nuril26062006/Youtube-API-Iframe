@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuril Aulia Setiawan - All Demon Slayer Videos</title>
+
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="android-chrome-512x512.png" type="image/png">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #28a745, #007bff, #28a745); /* Gradasi tiga warna: hijau, biru, hijau */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 i {
+            margin-right: 10px;
+        }
+
+        #player {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            animation: zoomIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .btn-custom {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: fadeIn 2s ease;
+            margin: 5px;
+        }
+
+        .btn-custom:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            margin-top: 10px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            animation: fadeIn 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="bi bi-youtube" style="color: #FF0000;"></i> Nuril Aulia Setiawan - All Demon Slayer Videos</h1>
+        <!-- YouTube Player -->
+        <div id="player">
+            <iframe width="640" height="390" src="https://www.youtube.com/embed/i2xCuolrngM" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <footer>&copy; 2024 by Nuril Aulia Setiawan Teknik Komputer Club - Yayasan Pendidikan Islam Raudhatul Fikrah</footer>
+        <!-- Tombol Play Video -->
+        <button class="btn-custom" onclick="prevVideo()">Video Sebelumnya</button>
+        <button class="btn-custom" onclick="playVideo()">Putar Video</button>
+        <button class="btn-custom" onclick="nextVideo()">Video Selanjutnya</button>
+    </div>
+
+    <script>
+        var videos = [
+            'O8WK1iiWPN0', // Video 1
+            'wGKg7PaONOA', // Video 2
+            'd14rXYaNGgY', // Video 3
+            'HCb1WW-Tji8'  // Video 4
+        ];
+        var currentVideoIndex = 0;
+
+        function loadVideo() {
+            var player = document.querySelector('iframe');
+            var videoId = videos[currentVideoIndex];
+            player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        }
+
+        function playVideo() {
+            var player = document.querySelector('iframe');
+            var src = player.src;
+            if (!src.includes("autoplay=1")) {
+                player.src += (src.includes("?") ? "&" : "?") + "autoplay=1";
+            }
+        }
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            loadVideo();
+        }
+
+        function prevVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+            loadVideo();
+        }
+
+        window.onload = function() {
+            loadVideo(); // Memuat video pertama saat halaman dimuat
+        }
+    </script>
+</body>
+</html>
